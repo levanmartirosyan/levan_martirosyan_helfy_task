@@ -1,0 +1,130 @@
+.task-card {
+  box-sizing: border-box;
+  width: min(570px, 100%);
+  min-height: 326px;
+  padding: 30px;
+  border: 1px solid #e9ebf2;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgb(35 54 91 / 12%);
+}
+
+.task-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.priority-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.priority-high {
+  color: #c84e4b;
+  background: #ffe9e8;
+}
+
+.priority-medium {
+  color: #ba751d;
+  background: #fff0dc;
+}
+
+.priority-low {
+  color: #757e91;
+  background: #e6e9f3;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.task-actions button {
+  padding: 6px 10px;
+  border: 1px solid #e5e8ef;
+  border-radius: 8px;
+  background: #fff;
+  color: #596174;
+  cursor: pointer;
+}
+
+.task-actions button:hover {
+  background: #f7f8fc;
+}
+
+.task-title {
+  margin: 28px 0 12px;
+  color: #20283a;
+  font-size: 27px;
+}
+
+.task-description {
+  min-height: 48px;
+  color: #737d90;
+  line-height: 1.6;
+}
+
+.task-divider {
+  height: 1px;
+  margin: 22px 0;
+  background: #edf0f5;
+}
+
+.task-complete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #687286;
+  cursor: pointer;
+}
+
+.task-check {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 2px solid #c5cad6;
+  border-radius: 50%;
+}
+
+.completed .task-check {
+  border-color: #6558e8;
+  background: #6558e8;
+  color: #fff;
+}
+
+.task-date {
+  margin-top: 22px;
+  color: #9aa1af;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .task-card {
+    min-height: 300px;
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .task-title {
+    font-size: 23px;
+  }
+}

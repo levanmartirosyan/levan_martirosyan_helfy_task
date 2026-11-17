@@ -1,0 +1,161 @@
+.form-backdrop,
+.delete-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgb(32 40 58 / 48%);
+}
+
+.task-form-modal,
+.delete-dialog {
+  box-sizing: border-box;
+  width: min(500px, 100%);
+  padding: 30px;
+  border: 1px solid #e9ebf2;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgb(35 54 91 / 20%);
+  animation: modal-appear 180ms ease-out;
+}
+
+.task-form-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.task-form-eyebrow {
+  margin: 0 0 8px;
+  color: #8176ed;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.task-form-heading h2 {
+  margin: 0;
+  color: #20283a;
+  font-size: 25px;
+}
+
+.task-form-close {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #f4f5f9;
+  color: #687286;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.task-form-field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: #333b4d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.task-form-field input,
+.task-form-field textarea,
+.task-form-field select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e1e5ee;
+  border-radius: 10px;
+  background: #fff;
+  color: #20283a;
+  font: inherit;
+  font-weight: 400;
+}
+
+.task-form-field textarea {
+  resize: vertical;
+}
+
+.task-form-field input:focus,
+.task-form-field textarea:focus,
+.task-form-field select:focus {
+  border-color: #8176ed;
+  outline: 3px solid rgb(129 118 237 / 16%);
+}
+
+.task-form-error {
+  margin: 0 0 16px;
+  color: #c84e4b;
+  font-size: 13px;
+}
+
+.task-form-actions,
+.delete-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.task-form-actions button,
+.delete-dialog-actions button {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-form-cancel,
+.cancel-button {
+  border: 1px solid #e5e8ef;
+  background: #fff;
+  color: #596174;
+}
+
+.task-form-submit {
+  border: 1px solid #6558e8;
+  background: #6558e8;
+  color: #fff;
+}
+
+.task-form-actions button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .task-form-modal,
+  .delete-dialog {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .task-form-heading h2 {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task-form-modal,
+  .delete-dialog {
+    animation: none;
+  }
+}

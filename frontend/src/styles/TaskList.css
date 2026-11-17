@@ -1,0 +1,158 @@
+.task-carousel {
+  width: 100%;
+}
+
+.carousel-stage {
+  position: relative;
+  display: flex;
+  min-height: 380px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-current {
+  z-index: 2;
+  width: min(570px, calc(100% - 100px));
+}
+
+.carousel-current .task-card {
+  width: 100%;
+}
+
+.carousel-enter-next {
+  animation: enter-from-right 350ms ease both;
+}
+
+.carousel-enter-previous {
+  animation: enter-from-left 350ms ease both;
+}
+
+@keyframes enter-from-right {
+  from {
+    opacity: 0.55;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enter-from-left {
+  from {
+    opacity: 0.55;
+    transform: translateX(-48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.carousel-preview {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 220px;
+  min-height: 210px;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid #e9ebf2;
+  border-radius: 20px;
+  background: #f7f8fc;
+  color: #778094;
+  opacity: 0.6;
+  transform: translateY(-50%);
+}
+
+.carousel-preview-previous {
+  left: 0;
+}
+
+.carousel-preview-next {
+  right: 0;
+}
+
+.carousel-preview h3 {
+  margin: 20px 0 8px;
+  color: #596174;
+  font-size: 18px;
+}
+
+.carousel-preview p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #e5e8ef;
+  border-radius: 50%;
+  background: #fff;
+  color: #626d80;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  background: #f7f8fc;
+}
+
+.carousel-arrow:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.carousel-arrow-previous {
+  left: max(0px, calc(50% - 315px));
+}
+
+.carousel-arrow-next {
+  right: max(0px, calc(50% - 315px));
+}
+
+.carousel-count {
+  margin: 18px 0 0;
+  color: #8991a2;
+  text-align: center;
+  font-size: 13px;
+}
+
+.carousel-empty {
+  padding: 50px 20px;
+  color: #778094;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .carousel-preview {
+    display: none;
+  }
+
+  .carousel-current {
+    width: calc(100% - 64px);
+  }
+
+  .carousel-arrow-previous {
+    left: 0;
+  }
+
+  .carousel-arrow-next {
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-enter-next,
+  .carousel-enter-previous {
+    animation-duration: 1ms;
+  }
+}
