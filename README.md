@@ -1,3 +1,25 @@
+## Run the App
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm start
+The API runs at http://localhost:4000.
+```
+
+### Frontend
+
+Open a second terminal:
+
+```bash
+cd frontend
+npm install
+npm start
+The frontend runs at http://localhost:3000.
+```
+
 ## Task Model
 
 ```json
