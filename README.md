@@ -109,6 +109,6 @@ Unexpected server errors return `500 Internal Server Error`.
 ## Time Spent
 
 - Backend: ~ 1 Hour 45 Minutes
-- Frontend carousel, styling: ~ 1 Hour 55 Minutes
-- Testing and debugging: ~ 10 Minutes
+- Frontend, carousel, styling: ~ 1 Hour 55 Minutes
+- Testing and debugging: ~ 15 Minutes
 - Total: ~ 4 Hours
