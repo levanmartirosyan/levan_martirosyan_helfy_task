@@ -17,34 +17,31 @@ export default function TaskList({
   onEdit,
   onDelete,
 }: TaskListProps) {
-  const [activeTaskId, setActiveTaskId] = useState<number | null>(
-    tasks[0]?.id ?? null,
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"next" | "previous">("next");
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const foundIndex = tasks.findIndex((task) => task.id === activeTaskId);
-  const activeIndex = foundIndex >= 0 ? foundIndex : 0;
-  const activeTask = tasks[activeIndex] ?? null;
+  const safeIndex = tasks.length ? activeIndex % tasks.length : 0;
+  const activeTask = tasks[safeIndex] ?? null;
 
   function move(directionChange: -1 | 1) {
     if (tasks.length < 2 || isAnimating) return;
 
     const nextIndex =
-      (activeIndex + directionChange + tasks.length) % tasks.length;
+      (safeIndex + directionChange + tasks.length) % tasks.length;
 
     setDirection(directionChange === 1 ? "next" : "previous");
-    setActiveTaskId(tasks[nextIndex].id);
+    setActiveIndex(nextIndex);
     setIsAnimating(true);
   }
 
   const previousTask =
     tasks.length > 1
-      ? tasks[(activeIndex - 1 + tasks.length) % tasks.length]
+      ? tasks[(safeIndex - 1 + tasks.length) % tasks.length]
       : null;
 
   const nextTask =
-    tasks.length > 1 ? tasks[(activeIndex + 1) % tasks.length] : null;
+    tasks.length > 1 ? tasks[(safeIndex + 1) % tasks.length] : null;
 
   if (!activeTask) {
     return (
@@ -120,7 +117,7 @@ export default function TaskList({
       </div>
 
       <p className="carousel-count">
-        {activeIndex + 1} of {tasks.length}
+        {safeIndex + 1} of {tasks.length}
       </p>
     </section>
   );
